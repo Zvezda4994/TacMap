@@ -1,0 +1,64 @@
+/* src/index.css */
+:root {
+  font-family: monospace;
+  background-color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.leaflet-container {
+    background: #000 !important;
+}
+
+/* PULSE */
+
+
+.pulse-icon {
+  background: transparent; 
+}
+
+/* The Central Dot (The visible part) */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the dot perfectly */
+  box-shadow: 0 0 10px currentColor; /* Glowing effect */
+}
+
+/* Ring Pulse Animation MW2 */
+.dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%); /* Keep centered */
+  border: 1px solid currentColor;
+  opacity: 0;
+  animation: pulse-ring 2s infinite;
+}
+
+/* Animation keyframes */
+@keyframes pulse-ring {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 300%;  /* Expand to 3x size */
+    height: 300%;
+    opacity: 0;   /* Fade out */
+  }
+}
